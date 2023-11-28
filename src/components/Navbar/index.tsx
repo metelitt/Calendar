@@ -3,7 +3,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { Layout, Menu, Row } from "antd";
 import { LoginOutlined, LogoutOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux"; 
-import { toggleAuth } from "../../store/reducers/auth"; 
+import { setIsAuth } from "../../store/reducers/auth"; 
 import { useDispatch } from "react-redux";
 import { RootState } from "../../store";
 
@@ -12,7 +12,6 @@ export const Navbar: React.FC = () => {
   const isAuth = useSelector((state: RootState) => state.auth.auth);
   const dispatch =useDispatch()
   const onAuthClick = () => {
-    dispatch(toggleAuth());
     navigate(isAuth ? "" : "/login");
   };
 
